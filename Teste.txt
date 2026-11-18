@@ -1,0 +1,33 @@
+class Lobisomem:
+    def __init__(self, nome):
+        self.nome = nome
+        self.vida = 150
+        self.furia = 0
+        self.transformado = False
+
+    def transformar(self):
+        """Alterna entre a forma humana e a de lobisomem com base na fúria."""
+        self.transformado = not self.transformado
+        if self.transformado:
+            print(f"⚠️ {self.nome} uiva para a lua e se transforma em um Lobisomem!")
+        else:
+            print(f"👤 {self.nome} retorna à forma humana.")
+
+    def atacar(self):
+        """Retorna o tipo de ataque dependendo da forma atual."""
+        if self.transformado:
+            return "Ataque brutal com garras e presas! (Dano alto)"
+        else:
+            return "Ataque básico com punhos. (Dano baixo)"
+
+    def receber_dano(self, quantidade):
+        self.vida -= quantidade
+        print(f"{self.nome} recebeu {quantidade} de dano. Vida restante: {self.vida}")
+
+# Exemplo de uso do comando/classe:
+personagem = Lobisomem("Remus")
+
+# Testando os comandos:
+personagem.transformar()
+print(personagem.atacar())
+personagem.receber_dano(30)
